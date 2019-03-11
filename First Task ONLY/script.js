@@ -16,14 +16,15 @@ const addListItem = () => {
   tmp_edit.setAttribute("class",""+idx);
   tmp_edit.addEventListener("click",(event) => {
     let change = prompt("Enter The Edited Name");
-    editListItem(event.originalTarget.getAttribute("class"), change);
+    console.log(event.target);
+    editListItem(event.target.getAttribute("class"), change);
   });
 
   let tmp_done = document.createElement("button");
   tmp_done.textContent = "Done";
   tmp_done.setAttribute("class",""+idx);
   tmp_done.addEventListener("click",(event) => {
-    let delID = event.originalTarget.getAttribute("class");
+    let delID = event.target.getAttribute("class");
     for ( let i = 0 ; i < 3 ; ++i )
       document.querySelector("ul").removeChild(document.getElementsByClassName(delID)[0]);
   });
